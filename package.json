@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
-    "build": "webpack",
+    "start": "nodemon server/basic-server.js",
     "style": "sass ./client/src/stylesheets/base.scss ./client/dist/styles.css",
-    "start": "nodemon server/basic-server.js"
+    "build": "webpack",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/basic-server.js",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,14 +26,15 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "faker": "^4.1.0",
     "mongoose": "^5.0.15",
+    "pg": "^7.4.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "sass": "^1.2.0",
+    "to-camel-case": "^1.0.0",
     "webpack-cli": "^2.0.14"
   },
   "devDependencies": {

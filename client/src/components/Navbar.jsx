@@ -17,13 +17,12 @@ class Navbar extends Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`http://54.245.43.177:80/api/navbar/${this.state.projectId}`)
+    axios.get(`/api/navbar/${this.state.projectId}`)
       .then((response) => {
-        console.log(response);
         context.setState({
-          faqTotal: response.data[0].faq,
-          updatesTotal: response.data[0].updates,
-          commentsTotal: response.data[0].comments,
+          faqTotal: response.data.faqsCount,
+          updatesTotal: response.data.updatesCount,
+          commentsTotal: response.data.commentsCount,
         });
       })
       .catch((error) => {
