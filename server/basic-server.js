@@ -9,15 +9,13 @@ app.use(express.static(`${__dirname}/../client/dist`));
 app.use(cors());
 
 app.get('/api/navbar/:id', async (req, res) => {
-  const results = {};
-
   const { id } = req.params;
-  const { rows } = await db.query(`SELECT * FROM projects WHERE id = ${id}`);
-  Object.keys(rows[0]).forEach((key) => {
-    results[camel(key)] = rows[0][key];
-  });
-
-  res.send(results);
+  const { rows } = await db.query(`SELECT 
+                                  faqs_count AS "faqTotal",
+                                  updates_count AS "updatesTotal",
+                                  comments_count AS "commentsTotal" 
+                                  FROM projects WHERE id = ${id}`);
+  res.send(rows[0]);
 });
 
 const PORT = (process.env.PORT || 3002);

@@ -18,11 +18,9 @@ class Navbar extends Component {
   componentDidMount() {
     const context = this;
     axios.get(`/api/navbar/${this.state.projectId}`)
-      .then((response) => {
+      .then(({ data: { faqTotal, updatesTotal, commentsTotal } }) => {
         context.setState({
-          faqTotal: response.data.faqsCount,
-          updatesTotal: response.data.updatesCount,
-          commentsTotal: response.data.commentsCount,
+          faqTotal, updatesTotal, commentsTotal,
         });
       })
       .catch((error) => {
