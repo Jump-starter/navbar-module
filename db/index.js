@@ -1,7 +1,18 @@
-const mongoose = require('mongoose');
+const { Pool } = require('pg');
 
-const mongoUrl = 'mongodb://admin:notairbnb@ds259109.mlab.com:59109/navbar-module';
+const pool = new Pool({
+  user: 'zhujohnny',
+  host: 'localhost',
+  database: 'jumpstarter',
+  password: 'null',
+  port: 5432,
+});
 
-const db = mongoose.connect(mongoUrl);
+pool.on('error', (err, client) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
 
-module.exports = db;
+module.exports = {
+  query: (text, params) => pool.query(text, params),
+};
