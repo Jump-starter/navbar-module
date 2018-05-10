@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import BackThisProjectButton from './BackThisProjectButton.jsx';
-import RemindMeButton from './RemindMeButton.jsx';
+import React from 'react';
+import PropTypes from 'prop-types';
+import BackThisProjectButton from './BackThisProjectButton';
+import RemindMeButton from './RemindMeButton';
 
 const InterestedLinks = props => (
   <div className="interestedLinksContainer">
@@ -10,3 +11,8 @@ const InterestedLinks = props => (
 );
 
 export default InterestedLinks;
+
+InterestedLinks.propTypes = {
+  projectId: PropTypes.string.isRequired,
+};
+

@@ -1,6 +1,7 @@
+/* eslint-env browser */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './components/Navbar.jsx';
+import Navbar from './components/Navbar';
 
 window.React = React;
 window.ReactDOM = ReactDOM;
