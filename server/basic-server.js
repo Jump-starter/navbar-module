@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const camel = require('to-camel-case');
 const db = require('../db');
 
 const app = express();
