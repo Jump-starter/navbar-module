@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavButton from './NavButton.jsx';
+import NavButton from './NavButton';
 
 class NavLinks extends Component {
   constructor(props) {

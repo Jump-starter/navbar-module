@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import axios from 'axios';
-import NavLinks from './NavLinks.jsx';
-import InterestedLinks from './InterestedLinks.jsx';
+import NavLinks from './NavLinks';
+import InterestedLinks from './InterestedLinks';
 
 class Navbar extends Component {
   constructor(props) {
@@ -43,3 +43,7 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+
+Navbar.propTypes = {
+  projectId: PropTypes.string.isRequired,
+};

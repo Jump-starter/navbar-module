@@ -1,6 +1,7 @@
+/* eslint-env browser */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
-
 
 class RemindMeButton extends Component {
   constructor(props) {
@@ -109,3 +110,7 @@ class RemindMeButton extends Component {
 }
 
 export default RemindMeButton;
+
+RemindMeButton.propTypes = {
+  projectId: PropTypes.string.isRequired,
+};
