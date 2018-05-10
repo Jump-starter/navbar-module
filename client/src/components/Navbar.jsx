@@ -9,9 +9,9 @@ class Navbar extends Component {
     super(props);
     this.state = {
       projectId: this.props.projectId || 0,
-      faqTotal: 0,
-      updatesTotal: 0,
-      commentsTotal: 0,
+      faqTotal: '',
+      updatesTotal: '',
+      commentsTotal: '',
     };
   }
 
