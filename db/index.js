@@ -2,9 +2,9 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'zhujohnny',
-  host: 'localhost',
+  host: (process.env.NODE_ENV === 'production') ? 'jumpstarter.csd5zcikdsxn.us-west-1.rds.amazonaws.com' : 'localhost',
   database: 'jumpstarter',
-  password: 'null',
+  password: (process.env.NODE_ENV === 'production') ? process.env.POSTGRES_PASSWORD : 'null',
   port: 5432,
 });
 

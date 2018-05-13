@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/basic-server.js",
+    "start": "NODE_ENV=production node server/basic-server.js",
     "style": "sass ./client/src/stylesheets/base.scss ./client/dist/styles.css",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/basic-server.js",

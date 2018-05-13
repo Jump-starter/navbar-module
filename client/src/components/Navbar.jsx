@@ -16,8 +16,14 @@ class Navbar extends Component {
   }
 
   componentDidMount() {
+    // console.log(process.env.NODE_ENV);
+    // const url = (process.env.NODE_ENV === 'production') ?
+    //   'http://ec2-13-57-28-8.us-west-1.compute.amazonaws.com' : 'http://127.0.0.1:3002';
+
+    const url = 'http://ec2-13-57-28-8.us-west-1.compute.amazonaws.com';
+
     const context = this;
-    axios.get(`/api/navbar/${this.state.projectId}`)
+    axios.get(`${url}/api/navbar/${this.state.projectId}`)
       .then(({ data: { faqTotal, updatesTotal, commentsTotal } }) => {
         context.setState({
           faqTotal, updatesTotal, commentsTotal,
