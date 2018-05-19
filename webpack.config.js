@@ -1,11 +1,8 @@
 const path = require('path');
 
-module.exports = {
-  entry: './client/src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/dist'),
-  },
+const common = {
+  mode: 'development',
+  context: path.resolve(__dirname, 'client'),
   devtool: '#eval-source-map',
   module: {
     rules: [
@@ -22,5 +19,27 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  watch: true,
 };
+
+const client = {
+  entry: './client.js',
+  output: {
+    path: path.resolve(__dirname, 'client/dist'),
+    filename: 'bundle.js',
+  },
+};
+
+const server = {
+  entry: './server.js',
+  target: 'node',
+  output: {
+    path: path.resolve(__dirname, 'client/dist'),
+    filename: 'bundle-server.js',
+    libraryTarget: 'commonjs-module',
+  },
+};
+
+module.exports = [
+  Object.assign({}, common, client),
+  Object.assign({}, common, server),
+];
